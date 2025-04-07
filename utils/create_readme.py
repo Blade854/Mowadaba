@@ -1,4 +1,23 @@
-# نظام إدارة المدرسة
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+سكريبت إنشاء ملف README لنظام إدارة المدرسة
+"""
+
+import os
+
+def create_readme():
+    """إنشاء ملف README للمشروع"""
+    # إنشاء مجلد للوثائق
+    docs_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs")
+    os.makedirs(docs_dir, exist_ok=True)
+    
+    # مسار ملف README
+    readme_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "README.md")
+    
+    # محتوى ملف README
+    readme_content = """# نظام إدارة المدرسة
 
 ## نظرة عامة
 نظام إدارة المدرسة هو تطبيق سطح مكتب متكامل مصمم لتسهيل العمليات الإدارية في المدارس. يوفر النظام واجهة مستخدم سهلة الاستخدام باللغة العربية لإدارة بيانات التلاميذ والأساتذة والعمال، وكذلك إدارة الشهادات الطبية والتقارير السلوكية واستدعاءات الأولياء.
@@ -74,3 +93,14 @@ school_management/
 
 ## الترخيص
 هذا البرنامج مرخص بموجب رخصة MIT. راجع ملف LICENSE للحصول على مزيد من المعلومات.
+"""
+    
+    # كتابة محتوى ملف README
+    with open(readme_path, "w", encoding="utf-8") as f:
+        f.write(readme_content)
+    
+    print(f"تم إنشاء ملف README بنجاح في: {readme_path}")
+    return readme_path
+
+if __name__ == "__main__":
+    create_readme()
